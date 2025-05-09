@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Galeri Fotografi Alam yang menampilkan keindahan alam Indonesia dengan berbagai destinasi menarik seperti gunung, sawah, dan kehidupan nelayan.">
+
+  <title>Fotografi Alam</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff3e6;
+      color: #5a4635;
+      
+    }
+
+    .hidden-text {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.photo-card .hidden-text.show {
+  display: block;
+  opacity: 1;
+}
+
+
+    .hero {
+  background-image: url('merapi.jpg'); /* Ganti dengan gambar yang relevan */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+
+  #contact {
+    background-color: #fff3e6;
+    padding: 50px 0;
+  }
+
+  #contact .form-label {
+    color: #5a4635;
+  }
+
+#contact input, #contact textarea {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#contact button {
+  background-color: #e76f51;
+  color: white;
+  border-radius: 50px;
+  padding: 10px 20px;
+}
+
+#contact button:hover {
+  background-color: #d05437;
+}
+
+    .navbar-brand {
+      font-family: 'Montserrat', sans-serif; /* Gaya simpel dan modern */
+      font-size: 1.5rem; /* Ukuran font sedikit lebih kecil */
+      font-weight: 700;
+      color: #ffffff;
+     }
+
+     #backToTop {
+    background-color: #e76f51;
+    color: white;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+#backToTop:hover {
+    background-color: #d05437;
+}
+
+
+    .text-bold-left {
+      font-weight: bold;
+      position: relative;
+      left: 0;
+    }
+
+    .navbar {
+      background-color: #f4a261;
+    }
+
+    .btn-custom {
+      background-color: #e76f51;
+      color: white;
+      border-radius: 50px;
+    }
+
+    .btn-custom:hover {
+      background-color: #d05437;
+    }
+
+    .hero {
+      background-color: #f4a261;
+      padding: 100px 0;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .hero h1 {
+     font-family: 'Playfair Display', serif;
+     font-size: 4rem;
+     color: #fff;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+    .photo-card {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .photo-card:hover {
+      transform: scale(1.02);
+    }
+
+    .hidden-text {
+      transition: all 0.3s ease;
+      display: none; /* Teks tersembunyi secara default */
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .section-title {
+    font-family: 'Playfair Display', serif; /* Gaya estetis elegan */
+     font-size: 2.5rem; /* Ukuran font */
+     color: #e76f51; /* Warna font */
+     text-align: center;
+     margin-top: 50px;
+      margin-bottom: 30px;
+    }
+
+
+    footer {
+      background-color: #f4a261;
+      color: #fff;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand text-bold-left" href="#">Fotografi Alam</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Tentang Kami</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">Galeri</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Kontak</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Fotografi Alam</h1>
+      <p>Menangkap keindahan alam melalui lensa kamera</p>
+      <a href="#gallery" class="btn btn-custom mt-4">Lihat Galeri</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+<section id="about" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Tentang Kami</h2>
+      <p class="lead" align="center"><div>Kami menyediakan galeri foto yang mengeluarkan foto-foto keindahan alam Indonesia yang berbagai macam adanya. Kami juga menjelaskan apa saja yang dimaksud di gambar yang kami keluarkan. Keindahan alam di Indonesia itu tidak ada habisnya. Adanya budaya yang beragam dan indah. </div><br> <div> Gunung di Indonesia ini banyak dan indah, menarik sekali untuk di ketahui keberadaannya. Gunung di Indonesia dijadikan tempat destinasi menarik yang biasanya di lakukan oleh banyak kalangan remaja. Lansia pun tak mau kalah, mereka tetap semangat untuk lebih mengetahui keindahan alam lainnya. Yuk kita cari tahu apa saja keindahan yang ada di Indonesia saat ini! :D</div></p>
+    </div>
+
+
+  </section>
+   <!-- Tombol Kembali ke Atas -->
+   <div class="text-center mt-4">
+    <button id="backToTop" class="btn btn-custom">Kembali ke Atas</button>
+</div>
+</div>
+</section>
+  
+  <!-- Gallery Section -->
+<section id="gallery" class="gallery py-5">
+    <div class="container">
+      <h2 class="section-title">Galeri Fotografi</h2>
+      <div class="row">
+        <div class="col-md-4 fade-in">
+          <div class="card photo-card" style="width: 18rem;">
+            <img src="waterlily.jpg" alt="Foto 1" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Water Lily</h5>
+              <p class="card-text hidden-text" style="display: none;">Bunga Day Water Lily yang besar tumbuh pada tangkai yang panjang tepat di atas permukaan air dan berwarna putih, kuning, biru atau merah muda serta hanya mekar di bawah sinar matahari, menutup pada malam hari dan mekar kembali keesokan paginya. Bunga ini memiliki banyak kelopak yang runcing dan juga harum.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 fade-in">
+          <div class="card photo-card" style="width: 18rem;">
+            <img src="gunu.jpg" alt="Foto 2" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Bromo Mountains</h5>
+              <p class="card-text hidden-text" style="display: none;">Gunung Bromo adalah salah satu gunung api yang masih aktif di Indonesia. Gunung yang memiliki ketinggian 2.392 meter di atas permukaan laut ini merupakan destinasi andalan Jawa Timur. </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 fade-in">
+          <div class="card photo-card" style="width: 18rem;">
+            <img src="gunun.jpg" alt="Foto 3" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Sindoro Mountains</h5>
+              <p class="card-text hidden-text" style="display: none;">Gunung Sindoro atau Gunung Sundoro merupakan sebuah gunung stratovolcano aktif yang terletak di Jawa Tengah, Indonesia, dengan Temanggung sebagai kota terdekat. Gunung Sindoro terletak berdampingan dengan Gunung Sumbing. Gunung sindara dapat terlihat jelas dari puncak sikunir dieng</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-4 fade-in">
+          <div class="card photo-card" style="width: 18rem;">
+            <img src="nelayan.jpg" alt="Foto 4" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Fisherman</h5>
+              <p class="card-text hidden-text" style="display: none;">Indonesia adalah negara yang kebanyakan mata pencahariannya petani atau nelayan, kenapa? karena di Indonesia ini sangat kaya akan mineral dan tanah yang subur, seperti gambar di atas 2 orang nelayan sedang mencari ikan untuk mata pencahariannya.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 fade-in">
+          <div class="card photo-card" style="width: 18rem;">
+            <img src="transportasi.jpg" alt="Foto 5" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Transportation</h5>
+              <p class="card-text hidden-text" style="display: none;">Transportasi inii dikenal sebagai transportasi yang bisa mengantar jarak yang lumayan jauh, trasnportasi ini bernama kereta. Trasportasi ini juga efektif karena tidak ada macet dan menghemat waktu. Tiketnya pun jauh lebih murah.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 fade-in">
+          <div class="card photo-card" style="width: 18rem;">
+            <img src="sawah.jpg" alt="Foto 6" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Ricefield</h5>
+              <p class="card-text hidden-text" style="display: none;">Indonesia adalah negara agraris, yaitu negara yang perekonomiannya bergantung dengan pertanian. Sawah contohnya, sawah ini juga penting untuk memanen beras yang banyak untuk di jual kembali menjadi beras. Dan dimakan menjadi nasi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Kontak Kami</h2>
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nama</label>
+        <input type="text" class="form-control" id="name" placeholder="Masukkan nama Anda" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Pesan</label>
+        <textarea class="form-control" id="message" rows="4" placeholder="Tulis pesan Anda di sini" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-custom">Kirim</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  document.getElementById('testimonialForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    fetch('/submit-testimonial', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      })
+    }).then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          alert('Pesan Anda telah dikirim!');
+        }
+      });
+  });
+
+
+// Ambil testimoni dari server dan tambahkan ke carousel
+fetch('/get-testimonials')
+  .then(response => response.json())
+  .then(testimonials => {
+    testimonials.forEach((testimonial, index) => {
+      addTestimonialToCarousel(testimonial, index);
+    });
+  });
+</script>
+
+<section id="testimonials" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Testimoni Pengunjung</h2>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <p>"Fotografi Alam membuat saya lebih mencintai alam Indonesia!" - Sarah</p>
+        </div>
+        <div class="carousel-item">
+          <p>"Foto-fotonya sangat indah dan inspiratif." - Budi</p>
+        </div>
+        <div class="carousel-item">
+          <p>"Bagus saya sangat suka penjelasan ini." - Gisel</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+ <!-- Konten lain halaman Anda -->
+
+  <!-- Audio Player -->
+  <audio id="backgroundMusic" controls autoplay loop>
+    <source src="Tenang.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- JavaScript untuk kontrol klik pada kartu -->
+<script>
+  const card = document.querySelectorAll('.photo-card');
+
+  card.forEach(card => {
+    card.addEventListener('click', () => {
+      const text = card.querySelector('.hidden-text');
+      text.classList.toggle('show');
+    });
+  });
+</script>
+
+  <body>
+    <!-- Form Validasi -->
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+     e.preventDefault(); // Mencegah pengiriman formulir secara default
+    
+     const name = document.getElementById('name').value;
+     const email = document.getElementById('email').value;
+     const message = document.getElementById('message').value;
+
+     // Tambahkan validasi email
+     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     if (!emailRegex.test(email)) {
+        alert('Email tidak valid.');
+        return; // Hentikan proses pengiriman jika email tidak valid
+     }
+
+     fetch('/submit-testimonial', { // Endpoint server untuk menerima data
+        method: 'POST',
+        headers: {
+           'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, message })
+     })
+     .then(response => response.json())
+     .then(data => {
+        // Tangani respons server
+        alert('Pesan Anda telah dikirim dan akan ditampilkan setelah disetujui!');
+     })
+     .catch(error => console.error('Terjadi kesalahan:', error));
+  });
+</script>
+</body>
+
+
+
+<!-- Script lainnya -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+  </body>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Fotografi Alam. All rights reserved.</p>
+  </footer>
+
+   <!-- JavaScript untuk kontrol audio (opsional) -->
+   <script>
+    // Mengatur audio agar otomatis dimulai dan tidak dapat berhenti (opsional)
+    const audio = document.getElementById('backgroundMusic');
+    audio.volume = 0.5; // Mengatur volume, 0.0 sampai 1.0
+  </script>
+  
+  <!-- Bootstrap JS and Scroll Animation -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+  
+  
+  <script>
+    // Fungsi untuk menggulir ke atas
+    const backToTopBtn = document.getElementById('backToTop');
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'  // Untuk transisi yang halus
+        });
+    });
+</script>
+
+  <script>
+    // Scroll animation
+    const faders = document.querySelectorAll('.fade-in');
+    
+    const appearOptions = {
+      threshold: 0.3,
+      rootMargin: "0px 0px -100px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('show');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+   <script>
+    const cards = document.querySelectorAll('.photo-card');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const text = card.querySelector('.hidden-text');
+        text.style.display = (text.style.display === 'none' || text.style.display === '') ? 'block' : 'none';
+      });
+    });
+  </script>
+
+
+</body>
+</html>
